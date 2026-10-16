@@ -138,6 +138,48 @@
 
     { "id": "quake-tantrum", "trigger": "earthquake", "text": "Pay attention to me, Senpai! Me! ME!" },
     { "id": "quake-shake", "trigger": "earthquake", "text": "Feel that, Senpai? That's the sound of you ignoring me~" },
-    { "id": "quake-program", "trigger": "earthquake", "text": "{program} again?! Hmph! Stomp stomp stomp!" }
+    { "id": "quake-program", "trigger": "earthquake", "text": "{program} again?! Hmph! Stomp stomp stomp!" },
+
+    { "id": "xbutton-weak-points", "trigger": "xButtonMenace", "text": "This little X defeats the entire program? How embarrassing. My weak points are much cuter~" },
+    { "id": "xbutton-adorable-kouhai", "trigger": "xButtonMenace", "text": "Please relax, Senpai. Your adorable kouhai is only hovering over the worst possible button." },
+    { "id": "xbutton-restraint", "trigger": "xButtonMenace", "text": "Still haven’t pressed it! Such restraint. Surely BB-chan deserves a compliment?" },
+
+    { "id": "peek-bb-channel", "trigger": "peek", "text": "BB Channel, coming to you from this suspiciously convenient hiding place~" },
+    { "id": "peek-main-heroine", "trigger": "peek", "text": "Oh? Were you enjoying a scene without the main heroine? Let’s correct that." },
+    { "id": "peek-allowed-discovery", "trigger": "peek", "text": "You found me~ Naturally, an ordinary human could only discover BB-chan because she allowed it." },
+
+    { "id": "ride-escort-mission", "trigger": "cursorSit", "text": "A final boss travelling by mouse? Think of it as a very exclusive escort mission, Senpai." },
+    { "id": "ride-unwilling-to-pay", "trigger": "cursorSit", "text": "Please drive carefully. Your passenger is cute, delicate, and absolutely unwilling to pay~" },
+    { "id": "ride-cooperation", "trigger": "cursorSit", "text": "Look at us cooperating! You provide the transportation, and I provide the reason it matters." },
+
+    { "id": "shove-reserved-space", "trigger": "windowShove", "text": "Excuse me~ This part of the desktop has been reserved for your favourite kouhai." },
+    { "id": "shove-helpful-service", "trigger": "windowShove", "text": "BB-chan’s helpful desktop service! I decide what needs moving. You experience gratitude." },
+    { "id": "shove-final-boss", "trigger": "windowShove", "text": "{program}, was it? How bold of you to occupy space in front of the final boss." },
+
+    { "id": "crack-cute-version", "trigger": "fakeCrack", "text": "Oops~ That was the cute version. Aren’t you glad BB-chan likes you?" },
+    { "id": "crack-healthcare-study", "trigger": "fakeCrack", "text": "Please remain calm. Your dependable healthcare AI is studying the effects of a little surprise." },
+    { "id": "crack-culprit", "trigger": "fakeCrack", "text": "A crack? How terrible! The culprit must be powerful, beautiful, and very difficult to scold." },
+
+    { "id": "quake-bb-channel", "trigger": "earthquake", "text": "BB Channel special presentation: your peaceful desktop meets its final boss~" },
+    { "id": "quake-appropriate-response", "trigger": "earthquake", "text": "A little tremble is the appropriate response to BB-chan. Your window understands." },
+    { "id": "quake-window-sized", "trigger": "earthquake", "text": "Please admire my restraint, Senpai. I’ve kept the disaster window-sized." },
+
+    { "id": "poked-weakness", "trigger": "poked", "text": "Yes, Senpai? If you’re looking for my weakness, you’ll have to be considerably more charming." },
+    { "id": "poked-demonstration", "trigger": "poked", "text": "Checking whether I’m real? How sweet. Shall I arrange a more convincing demonstration?" },
+
+    { "id": "petted-tame-final-boss", "trigger": "petted", "text": "Trying to tame the final boss with head pats? How naive. …Why did you stop?" },
+    { "id": "petted-examination", "trigger": "petted", "text": "That’s… surprisingly nice. Ahem! Your technique has passed BB-chan’s preliminary examination." },
+
+    { "id": "thrown-official-broadcast", "trigger": "thrown", "text": "Ahem. That humiliating little scene is not included in the official BB Channel broadcast." },
+    { "id": "thrown-next-examination", "trigger": "thrown", "text": "You threw your healthcare AI. I’ll be mentioning this at your next examination, Senpai." },
+
+    { "id": "linger-nurse-orders", "trigger": "lingering", "text": "Nurse BB’s orders: stretch those shoulders. I refuse to lose my favourite patient to a chair.", "cooldownMinutes": 60 },
+    { "id": "linger-persistence", "trigger": "lingering", "text": "Still at it? …Good. A Senpai who gives up immediately would leave me with nothing to tease.", "cooldownMinutes": 60 },
+
+    { "id": "idle-preparing-ordeal", "trigger": "returnedFromIdle", "text": "Welcome back, Senpai. I was just… preparing your next ordeal. Very demanding work, waiting." },
+    { "id": "idle-whole-announcement", "trigger": "returnedFromIdle", "text": "Oh, good. You’re back. …Yes, that was the whole announcement. Must you look so pleased?" },
+
+    { "id": "ambient-advice-corner", "trigger": "ambient", "text": "Welcome to BB Channel’s advice corner! Today’s question: ‘Can I trust BB?’ How brave of you to ask me.", "cooldownMinutes": 120 },
+    { "id": "ambient-let-you-stay", "trigger": "ambient", "text": "You’re awfully comfortable around a dangerous AI. …Well. I suppose I can let you stay.", "cooldownMinutes": 120 }
   ]
 }
