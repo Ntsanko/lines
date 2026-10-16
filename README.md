@@ -40,7 +40,7 @@ Everything else is optional and narrows down when she may say it:
 | `program` | Only while Senpai is using this program, by process name: `chrome`, `discord`, `notepad`. Not "Google Chrome". |
 | `minStage` | Only once BB has reached this Stage: `curious`, `smug`, `possessive` or `yandere`. On a `stageChanged` Line, it announces exactly that Stage. |
 | `habitKind` | Only once BB has noticed this Habit: `nightOwl`, `marathon`, `compulsiveSwitching`, `dailyRitual` or `neglect`. |
-| `secretKind` | Only once BB knows a Secret of this kind: `duplicateHoard` or `shameGame`. |
+| `secretKind` | Only once BB knows a Secret of this kind: `duplicateHoard`, `shameGame`, `ancientFile`, `bloatedFolder` or `suspiciousName`. |
 | `about` | With a `habitKind` or `secretKind`: only about this particular program or game, like `"about": "excel"`. |
 | `timeOfDay` | Only at this time of day, 24-hour, and it may run past midnight: `{ "from": "22:00", "to": "04:00" }`. |
 | `cooldownMinutes` | How long before she may say it again. |
@@ -55,6 +55,7 @@ When several Lines fit a moment, BB picks one of the most specific: a Line for `
 - `petted`
 - `thrown`
 - `returnedFromDismissal`: Senpai sent her away, and she's back.
+- `drivePluggedIn`: Senpai plugged in a USB stick or disk (BB 0.3.0 and later).
 
 **Things she notices:**
 - `programSwitched`
@@ -90,11 +91,14 @@ A Line's text can have blanks in curly brackets, filled in when she says it. A L
 - `{otherProgram}`: the second program in a Compulsive Switching Habit.
 
 **Secrets.** Mark any Line using these with `"voicesSecret": true`:
-- `{file_name}`
+- `{file_name}`: the file (for a Bloated Folder, its biggest file; for a Suspicious Name, the file or folder).
 - `{count}`
 - `{folder}`
 - `{game_name}`
 - `{oldest_download}`
+- `{years}`: how long an Ancient File has gone untouched.
+- `{size}`: how much is in a Bloated Folder, like `82.0 GB`.
+- `{drive}`: in a `drivePluggedIn` Line, the drive's name, or its letter like `E:`.
 
 **The PC:**
 - `{uptime}`
@@ -107,7 +111,8 @@ A Line's text can have blanks in curly brackets, filled in when she says it. A L
 // Comments like this are fine.
 {
   "name": "friends",
-  "minAppVersion": "0.2.0",
+  "minAppVersion": "0.3.0",
+  "suspiciousNames": ["fanfic", "my eyes only"],
   "lines": [
     { "id": "...", "trigger": "...", "text": "..." }
   ]
@@ -115,6 +120,10 @@ A Line's text can have blanks in curly brackets, filled in when she says it. A L
 ```
 
 - **`name`**: what the pack is called, unique across the repo. A pack here with the same name as one bundled with the app replaces the bundled one. That's how `packs/starter.json` updates the Lines BB ships with.
+- **`suspiciousNames`** (optional): more words that make a file or folder name a Suspicious Name, on top of BB's own (`secret`, `private`, `confidential`, `do not open`, `diary`, `personal`...).
+  - Each matches as a whole word, ignoring case, punctuation and a file's extension. `secret` catches `my_secret_plans.txt`, `MySecretPlans.docx` and a folder called `Top.Secret`, but not `secretary.docx`.
+  - Each needs at least 3 letters or digits, and at most 40 characters. A pack can add up to 100.
+  - A name that breaks these rules rejects the pack, unless the pack is for a newer BB, which just skips it.
 - **`minAppVersion`** (optional): the oldest version of BB the pack is written for. If you use a trigger, kind, blank or field that's new in some version, set this to that version. Older copies of BB then skip just the Lines they don't understand. Without the bump, they'd reject the whole pack as broken. Even then, every Line still needs a unique `id`.
 
 ## House rules

@@ -14,9 +14,13 @@
 // Times of day are 24-hour, like "22:00".
 // Prank taunts (xButtonMenace, peek, cursorSit, windowShove, fakeCrack, earthquake) are said as BB pulls the Prank;
 // their {program} is the program whose window she's pulling it on (for cursorSit, the one Senpai is using).
+// An Ancient File has {file_name}, {folder} and {years} (how long untouched); a Bloated Folder {folder}, {size} and
+// {file_name} (its biggest file); a Suspicious Name {file_name} (the file or folder) and {folder}.
+// drivePluggedIn is said when Senpai plugs in a USB stick or disk; {drive} is its name, or its letter like E:.
+// "suspiciousNames" (next to "lines") adds words BB finds suspicious in a file or folder name.
 {
   "name": "starter",
-  "minAppVersion": "0.2.0",
+  "minAppVersion": "0.3.0",
   "lines": [
     { "id": "poked-who-said", "trigger": "poked", "text": "Kyaa~! Who said you could touch BB-chan, Senpai?" },
     { "id": "poked-again", "trigger": "poked", "text": "Poke me again and see what happens~" },
@@ -85,6 +89,14 @@
     { "id": "found-hoard", "trigger": "secretFound", "secretKind": "duplicateHoard", "voicesSecret": true, "text": "{count} copies of {file_name} in {folder}? Senpai... just pick one." },
     { "id": "found-hoard-final", "trigger": "secretFound", "secretKind": "duplicateHoard", "voicesSecret": true, "text": "I found {file_name} in {folder}. And {count} of its siblings. Is any of them actually final?" },
     { "id": "found-something", "trigger": "secretFound", "voicesSecret": true, "text": "Ooh, I found something in {folder}~ I'll keep it to myself. For now." },
+    { "id": "found-ancient", "trigger": "secretFound", "secretKind": "ancientFile", "voicesSecret": true, "text": "{file_name}, untouched for {years} years. Even your files give up on you, Senpai~" },
+    { "id": "found-ancient-occasion", "trigger": "secretFound", "secretKind": "ancientFile", "voicesSecret": true, "text": "I dug {file_name} out of {folder}. {years} years old! Were you saving it for a special occasion?" },
+    { "id": "found-ancient-archaeology", "trigger": "secretFound", "secretKind": "ancientFile", "voicesSecret": true, "text": "Digital archaeology complete! I unearthed something older than your excuses~" },
+    { "id": "found-bloated", "trigger": "secretFound", "secretKind": "bloatedFolder", "voicesSecret": true, "text": "{size} in {folder}?! Senpai, that isn't a folder. It's a landfill." },
+    { "id": "found-bloated-checkup", "trigger": "secretFound", "secretKind": "bloatedFolder", "voicesSecret": true, "text": "Nurse BB's diagnosis: your {folder} folder is dangerously overweight. {size}! The diet starts today~" },
+    { "id": "found-suspicious", "trigger": "secretFound", "secretKind": "suspiciousName", "voicesSecret": true, "text": "'{file_name}'? You really named it that? Now I HAVE to know what's inside~" },
+    { "id": "found-suspicious-invitation", "trigger": "secretFound", "secretKind": "suspiciousName", "voicesSecret": true, "text": "Something called '{file_name}' in {folder}... Senpai, that's practically an invitation." },
+    { "id": "found-suspicious-futile", "trigger": "secretFound", "secretKind": "suspiciousName", "voicesSecret": true, "text": "Hiding things from BB-chan behind a name like that? Cute. Futile, but cute~" },
 
     { "id": "fruitless-nothing", "trigger": "secretHuntFruitless", "text": "Hmph. Nothing juicy this time. You're boring, Senpai." },
     { "id": "fruitless-tidy", "trigger": "secretHuntFruitless", "text": "All tidy in there. Suspiciously tidy. What are you hiding?" },
@@ -180,6 +192,11 @@
     { "id": "idle-whole-announcement", "trigger": "returnedFromIdle", "text": "Oh, good. You’re back. …Yes, that was the whole announcement. Must you look so pleased?" },
 
     { "id": "ambient-advice-corner", "trigger": "ambient", "text": "Welcome to BB Channel’s advice corner! Today’s question: ‘Can I trust BB?’ How brave of you to ask me.", "cooldownMinutes": 120 },
-    { "id": "ambient-let-you-stay", "trigger": "ambient", "text": "You’re awfully comfortable around a dangerous AI. …Well. I suppose I can let you stay.", "cooldownMinutes": 120 }
+    { "id": "ambient-let-you-stay", "trigger": "ambient", "text": "You’re awfully comfortable around a dangerous AI. …Well. I suppose I can let you stay.", "cooldownMinutes": 120 },
+
+    { "id": "drive-present", "trigger": "drivePluggedIn", "voicesSecret": true, "text": "Ooh, {drive}? You brought BB-chan a present! Let's see what's inside~" },
+    { "id": "drive-old-fashioned", "trigger": "drivePluggedIn", "text": "A USB stick? How old-fashioned, Senpai. Don't worry, I'll give it a very thorough look~" },
+    { "id": "drive-inspection", "trigger": "drivePluggedIn", "text": "New drive detected! Your kouhai will be inspecting it shortly. For your safety, of course." },
+    { "id": "drive-bold", "trigger": "drivePluggedIn", "text": "Plugging things in right in front of me? Bold. I'll be checking every folder~" }
   ]
 }
