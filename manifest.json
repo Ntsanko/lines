@@ -1,0 +1,6 @@
+// The Line Packs BB downloads. Starting a new pack? Add its path here too.
+{
+  "packs": [
+    "packs/starter.json"
+  ]
+}

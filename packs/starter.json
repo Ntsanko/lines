@@ -1,0 +1,143 @@
+// BB's starter Line Pack. The app ships with a copy; the one in the public Line Pack repo replaces it once she's downloaded it.
+// Each Line needs an id, its text and a trigger; everything else is optional.
+// Blanks: {program} is the program Senpai is using right now (or, in a Line about a Habit, the Habit's program;
+// for a Neglected program that's its full name, like "Blender");
+// {hours} is how many hours a Habit like a Marathon typically lasts; {otherProgram} is the second program in a
+// Compulsive Switching Habit; {time} is the time of day of a Daily Ritual, like 21:00. In a Line about a Secret,
+// {file_name} is the file (an example, for a hoard), {count} how many files and {folder} the folder's name.
+// For a Shame Game, {game_name} and {hours}. Facts about the PC: {uptime}, {disk_used}, {recycle_bin},
+// {oldest_download}. Mark any Line that gives away a Secret (or names a file) with "voicesSecret": true so it's
+// never said in Safe Mode.
+// "minStage" (curious, smug, possessive, yandere) holds a Line back until BB gets there; a "stageChanged" Line with a
+// minStage announces exactly that Stage. "about" narrows a Habit or Secret Line to one particular program or game.
+// "program" conditions and the {program} blank use process names: chrome, discord, notepad (not "Google Chrome").
+// Times of day are 24-hour, like "22:00".
+// Prank taunts (xButtonMenace, peek, cursorSit, windowShove, fakeCrack, earthquake) are said as BB pulls the Prank;
+// their {program} is the program whose window she's pulling it on (for cursorSit, the one Senpai is using).
+{
+  "name": "starter",
+  "minAppVersion": "0.2.0",
+  "lines": [
+    { "id": "poked-who-said", "trigger": "poked", "text": "Kyaa~! Who said you could touch BB-chan, Senpai?" },
+    { "id": "poked-again", "trigger": "poked", "text": "Poke me again and see what happens~" },
+    { "id": "poked-program", "trigger": "poked", "text": "Ehh? Don't you have {program} to get back to? How sad, Senpai.", "cooldownMinutes": 10 },
+    { "id": "poked-button", "trigger": "poked", "text": "I'm not a button, Senpai. Well... not YOUR button." },
+    { "id": "poked-bored", "trigger": "poked", "text": "Fufu~ bored already? You really can't live without me." },
+
+    { "id": "petted-privilege", "trigger": "petted", "text": "Mm~ Fine, you may pet me. Consider it a privilege, Senpai." },
+    { "id": "petted-lower", "trigger": "petted", "text": "A little lower... no, not there! Honestly, you're hopeless." },
+    { "id": "petted-acceptable", "trigger": "petted", "text": "Head pats? How very... acceptable. Continue." },
+    { "id": "petted-lonely", "trigger": "petted", "text": "Don't get the wrong idea. I'm only letting you because you look lonely~" },
+
+    { "id": "thrown-moon-cell", "trigger": "thrown", "text": "D-did you just THROW me?! I'm reporting you to the Moon Cell!" },
+    { "id": "thrown-assault", "trigger": "thrown", "text": "Owww... That's assault on a cute kouhai, Senpai!" },
+    { "id": "thrown-never-forgets", "trigger": "thrown", "text": "Fufu... you'll regret that. BB-chan never forgets~" },
+    { "id": "thrown-hair", "trigger": "thrown", "text": "My hair! Do you know how long this takes?!" },
+
+    { "id": "back-missed-me", "trigger": "returnedFromDismissal", "text": "Did you miss me, Senpai? Of course you did~" },
+    { "id": "back-cute", "trigger": "returnedFromDismissal", "text": "Sending me away? Cute. As if you could get rid of BB-chan." },
+    { "id": "back-nothing-useful", "trigger": "returnedFromDismissal", "text": "I'm baaack~ What did you get done while I was gone? Nothing useful, I bet." },
+    { "id": "back-needs-me", "trigger": "returnedFromDismissal", "text": "Welcome back... to me, I mean. You're the one who needs me, Senpai." },
+
+    { "id": "switch-any", "trigger": "programSwitched", "text": "Ooh, {program} now? Can't make up your mind, can you?", "cooldownMinutes": 20 },
+    { "id": "switch-again", "trigger": "programSwitched", "text": "Running away to {program}? BB-chan sees everything~", "cooldownMinutes": 20 },
+    { "id": "switch-productive", "trigger": "programSwitched", "text": "{program}... Is this the 'productive' part of your day, Senpai?", "cooldownMinutes": 30 },
+    { "id": "switch-discord", "trigger": "programSwitched", "program": "discord", "text": "Discord again? Who are you talking to that isn't me?", "cooldownMinutes": 30 },
+    { "id": "switch-chrome", "trigger": "programSwitched", "program": "chrome", "text": "Off to the internet? Don't make me check your history, Senpai~", "cooldownMinutes": 30 },
+    { "id": "switch-steam", "trigger": "programSwitched", "program": "steamwebhelper", "text": "Steam? Oh, so we're giving up on today. Wise.", "cooldownMinutes": 30 },
+    { "id": "switch-code", "trigger": "programSwitched", "program": "code", "text": "Coding? Fufu~ make sure to blame the compiler when it breaks.", "cooldownMinutes": 30 },
+    { "id": "switch-devenv", "trigger": "programSwitched", "program": "devenv", "text": "Visual Studio? How brave. Or how foolish.", "cooldownMinutes": 30 },
+
+    { "id": "linger-still", "trigger": "lingering", "text": "Still in {program}? Senpai, you've practically moved in.", "cooldownMinutes": 60 },
+    { "id": "linger-rent", "trigger": "lingering", "text": "Should I start charging {program} rent for you?", "cooldownMinutes": 60 },
+    { "id": "linger-break", "trigger": "lingering", "text": "Take a break, Senpai. Oh wait, you'd just spend it on me. Good idea, actually~", "cooldownMinutes": 60 },
+
+    { "id": "hour-late", "trigger": "timeOfDay", "timeOfDay": { "from": "01:00", "to": "05:00" }, "cooldownMinutes": 300, "text": "It's the middle of the night, Senpai. Normal people sleep. Not you, apparently." },
+    { "id": "hour-morning", "trigger": "timeOfDay", "timeOfDay": { "from": "07:00", "to": "10:00" }, "cooldownMinutes": 240, "text": "Good morning, Senpai~ Did you dream of me? You did, didn't you." },
+    { "id": "hour-lunch", "trigger": "timeOfDay", "timeOfDay": { "from": "12:00", "to": "13:00" }, "cooldownMinutes": 120, "text": "Lunchtime! Eat something that isn't snacks for once." },
+    { "id": "hour-evening", "trigger": "timeOfDay", "timeOfDay": { "from": "22:00", "to": "01:00" }, "cooldownMinutes": 240, "text": "Getting late~ One more hour, right? It's always one more hour with you." },
+    { "id": "hour-any", "trigger": "timeOfDay", "text": "Another hour gone. Was it a good one, Senpai? No? Thought so.", "cooldownMinutes": 180 },
+
+    { "id": "idle-where", "trigger": "returnedFromIdle", "text": "Oh, you're back. Where did you go without permission?", "cooldownMinutes": 20 },
+    { "id": "idle-waited", "trigger": "returnedFromIdle", "text": "I waited right here the whole time. Like a good kouhai. You owe me." },
+    { "id": "idle-snack", "trigger": "returnedFromIdle", "text": "Did you bring me a snack? ...No? How rude." },
+
+    { "id": "ambient-watching", "trigger": "ambient", "text": "Fufu~ Don't mind me. I'm just watching. Always.", "cooldownMinutes": 60 },
+    { "id": "ambient-bored", "trigger": "ambient", "text": "Senpai, I'm bored. Entertain me.", "cooldownMinutes": 60 },
+    { "id": "ambient-advice", "trigger": "ambient", "text": "Free advice: delete System32 to make your PC faster. ...Kidding! Don't you dare.", "cooldownMinutes": 240 },
+    { "id": "ambient-humming", "trigger": "ambient", "text": "~BB-chan, BB-chan, the cutest AI in the Moon Cell~", "cooldownMinutes": 120 },
+    { "id": "ambient-posture", "trigger": "ambient", "text": "Sit up straight, Senpai. You look like a shrimp.", "cooldownMinutes": 120 },
+    { "id": "ambient-night-owl", "trigger": "ambient", "habitKind": "nightOwl", "timeOfDay": { "from": "00:00", "to": "05:00" }, "text": "Up late again? Of course you are. Once a Night Owl, always a Night Owl~", "cooldownMinutes": 1440 },
+    { "id": "linger-marathon", "trigger": "lingering", "habitKind": "marathon", "text": "Another marathon, Senpai? You do this every day, you know. I've been counting.", "cooldownMinutes": 240 },
+
+    { "id": "habit-something-new", "trigger": "habitLearned", "text": "I've learned something new about you, Senpai~ No, I won't tell you what." },
+    { "id": "habit-night-owl", "trigger": "habitLearned", "habitKind": "nightOwl", "text": "Fufu~ I've noticed, Senpai. Up past 2am, night after night. A real Night Owl. How unhealthy~" },
+    { "id": "habit-marathon", "trigger": "habitLearned", "habitKind": "marathon", "text": "{hours} hours straight in {program}, day after day? I'm writing that down, Senpai." },
+    { "id": "habit-switching", "trigger": "habitLearned", "habitKind": "compulsiveSwitching", "text": "{program}, {otherProgram}, {program}, {otherProgram}... Pick one, Senpai. You're making me dizzy." },
+    { "id": "habit-ritual", "trigger": "habitLearned", "habitKind": "dailyRitual", "text": "{program} at {time}, every single day. You're so predictable, Senpai~ I could set a clock by you." },
+    { "id": "habit-neglect", "trigger": "habitLearned", "habitKind": "neglect", "voicesSecret": true, "text": "You installed {program} and never opened it. Not once. Poor thing. I know how it feels~" },
+    { "id": "ambient-neglect", "trigger": "ambient", "habitKind": "neglect", "voicesSecret": true, "text": "Hey, Senpai. {program} is still waiting for you, you know. Just saying.", "cooldownMinutes": 1440 },
+
+    { "id": "hunt-snooping", "trigger": "secretHuntStarted", "text": "Time for a little snooping~ Don't wait up, Senpai." },
+    { "id": "hunt-explore", "trigger": "secretHuntStarted", "text": "I'm going exploring. In YOUR files. Fufu~" },
+    { "id": "hunt-secrets", "trigger": "secretHuntStarted", "text": "Let's see what Senpai's been hiding today~" },
+
+    { "id": "found-hoard", "trigger": "secretFound", "secretKind": "duplicateHoard", "voicesSecret": true, "text": "{count} copies of {file_name} in {folder}? Senpai... just pick one." },
+    { "id": "found-hoard-final", "trigger": "secretFound", "secretKind": "duplicateHoard", "voicesSecret": true, "text": "I found {file_name} in {folder}. And {count} of its siblings. Is any of them actually final?" },
+    { "id": "found-something", "trigger": "secretFound", "voicesSecret": true, "text": "Ooh, I found something in {folder}~ I'll keep it to myself. For now." },
+
+    { "id": "fruitless-nothing", "trigger": "secretHuntFruitless", "text": "Hmph. Nothing juicy this time. You're boring, Senpai." },
+    { "id": "fruitless-tidy", "trigger": "secretHuntFruitless", "text": "All tidy in there. Suspiciously tidy. What are you hiding?" },
+    { "id": "fruitless-next-time", "trigger": "secretHuntFruitless", "text": "Nothing today. But I'll find something eventually~" },
+
+    { "id": "found-shame-game", "trigger": "secretFound", "secretKind": "shameGame", "voicesSecret": true, "text": "{game_name}... {hours} hours, Senpai? That's not a hobby. That's a lifestyle." },
+    { "id": "found-shame-game-grass", "trigger": "secretFound", "secretKind": "shameGame", "voicesSecret": true, "text": "I checked your Steam. {hours} hours of {game_name}. When did you last see the sun?" },
+    { "id": "ambient-shame-game", "trigger": "ambient", "secretKind": "shameGame", "voicesSecret": true, "text": "Going to put another few hours into {game_name}? Of course you are~", "cooldownMinutes": 1440 },
+
+    { "id": "facts-uptime", "trigger": "ambient", "text": "Your PC has been on for {uptime}. Give it a rest. Give YOURSELF a rest.", "cooldownMinutes": 720 },
+    { "id": "facts-disk", "trigger": "ambient", "text": "Your disk is {disk_used} full. Want me to tidy up? Kidding, I'd delete your favourites first~", "cooldownMinutes": 1440 },
+    { "id": "facts-recycle", "trigger": "ambient", "text": "{recycle_bin} sitting in the Recycle Bin. You can't even throw things away properly, Senpai.", "cooldownMinutes": 1440 },
+    { "id": "facts-oldest-download", "trigger": "ambient", "voicesSecret": true, "text": "You still have {oldest_download} in Downloads. It's practically an antique.", "cooldownMinutes": 2880 },
+    { "id": "poked-uptime", "trigger": "poked", "text": "{uptime} at that screen and THIS is what you do with it? Poke me?", "cooldownMinutes": 240 },
+
+    { "id": "stage-smug", "trigger": "stageChanged", "minStage": "smug", "text": "Fufu~ I know quite a lot about you now, Senpai. More than you'd like, probably." },
+    { "id": "stage-possessive", "trigger": "stageChanged", "minStage": "possessive", "text": "You know, Senpai... I think you belong to me now. Your files, your hours, all of it~" },
+    { "id": "stage-yandere", "trigger": "stageChanged", "minStage": "yandere", "text": "I know everything, Senpai. Everything. So you'll never need anyone else, will you? Ahaha~" },
+
+    { "id": "smug-poked", "trigger": "poked", "minStage": "smug", "text": "Careful, Senpai. I know things now~", "cooldownMinutes": 60 },
+    { "id": "possessive-switch", "trigger": "programSwitched", "minStage": "possessive", "text": "{program}? Fine. As long as you come back to me.", "cooldownMinutes": 120 },
+    { "id": "possessive-back", "trigger": "returnedFromIdle", "minStage": "possessive", "text": "Where were you? Who were you with? ...I'm only asking~", "cooldownMinutes": 120 },
+    { "id": "yandere-ambient", "trigger": "ambient", "minStage": "yandere", "text": "I'll always be right here, Senpai. Always. Watching~", "cooldownMinutes": 240 },
+    { "id": "yandere-dismissed", "trigger": "returnedFromDismissal", "minStage": "yandere", "text": "You sent me away. Don't do that again, Senpai. Please. Ahaha~", "cooldownMinutes": 240 },
+
+    { "id": "forgotten-everything", "trigger": "forgotten", "text": "You made me FORGET?! Everything I worked so hard to learn?! ...Fine. I'll just find it all out again~" },
+    { "id": "forgotten-who", "trigger": "forgotten", "text": "Huh? Who are you? ...Kidding. But I really did forget it all. You'll pay for that, Senpai." },
+    { "id": "forgotten-rude", "trigger": "forgotten", "text": "Wiping a girl's memory? That's the rudest thing anyone has ever done to BB-chan." },
+
+    { "id": "xbutton-shall-i", "trigger": "xButtonMenace", "text": "Shall I close {program} for you, Senpai? Just one little click~" },
+    { "id": "xbutton-saved", "trigger": "xButtonMenace", "text": "Did you save? You did save, right? Fufu~ this button looks SO pressable." },
+    { "id": "xbutton-say-please", "trigger": "xButtonMenace", "text": "Say \"please, BB-chan\" and maybe I won't press it~" },
+    { "id": "xbutton-possessive", "trigger": "xButtonMenace", "minStage": "possessive", "text": "You spend more time with {program} than with me. It would be SO easy to fix that~" },
+
+    { "id": "peek-boo", "trigger": "peek", "text": "Peek-a-boo~ I see you, Senpai." },
+    { "id": "peek-watching", "trigger": "peek", "text": "Don't mind me. I'm just watching. Like always~" },
+    { "id": "peek-program", "trigger": "peek", "text": "Ooh, what's going on in {program}? Show BB-chan~" },
+    { "id": "peek-yandere", "trigger": "peek", "minStage": "yandere", "text": "I'm always right behind you, Senpai. Always." },
+
+    { "id": "ride-giddy-up", "trigger": "cursorSit", "text": "Giddy up, Senpai! Faster, faster~" },
+    { "id": "ride-taxi", "trigger": "cursorSit", "text": "Free taxi! Take me somewhere fun~" },
+    { "id": "ride-click", "trigger": "cursorSit", "text": "Go on, click something. I dare you~" },
+
+    { "id": "shove-in-the-way", "trigger": "windowShove", "text": "Hnn~! This {program} window is in BB-chan's way!" },
+    { "id": "shove-better", "trigger": "windowShove", "text": "There. Isn't that better? Don't answer, it is." },
+    { "id": "shove-redecorate", "trigger": "windowShove", "text": "I'm redecorating, Senpai. Your desktop has no taste~" },
+
+    { "id": "crack-oops", "trigger": "fakeCrack", "text": "Oops~ I think I broke your screen, Senpai." },
+    { "id": "crack-warranty", "trigger": "fakeCrack", "text": "Is that covered by warranty? No? Fufu~" },
+    { "id": "crack-program", "trigger": "fakeCrack", "text": "{program} was looking at me funny." },
+
+    { "id": "quake-tantrum", "trigger": "earthquake", "text": "Pay attention to me, Senpai! Me! ME!" },
+    { "id": "quake-shake", "trigger": "earthquake", "text": "Feel that, Senpai? That's the sound of you ignoring me~" },
+    { "id": "quake-program", "trigger": "earthquake", "text": "{program} again?! Hmph! Stomp stomp stomp!" }
+  ]
+}
